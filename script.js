@@ -18,3 +18,31 @@ function onReady() {
 
 
 onReady()
+
+function atk(apc, dmg){
+    let apTextElement = document.getElementById('ap-text');
+    let apMeterElement = document.getElementById('ap-meter');
+    let ap = Number(apMeterElement.dataset.value);
+    console.log(ap,apc);
+    if(apc > ap){
+        apMeterElement.dataset.value = '0';
+        apTextElement.innerText = '0';
+    } else {
+        ap -= apc;
+        apMeterElement.dataset.value = `${ap}`;
+        apTextElement.innerText = `${ap}`;
+    }
+
+    let hpTextElement = document.getElementById('hp-text');
+    let hpMeterElement = document.getElementById('hp-meter');
+    let hp = Number(hpMeterElement.dataset.value);
+    console.log(hp,dmg);
+    if(dmg > hp){
+        hpMeterElement.dataset.value = '0';
+        hpTextElement.innerText = '0';
+    } else {
+        hp -= dmg;
+        hpMeterElement.dataset.value = `${hp}`;
+        hpTextElement.innerText = `${hp}`;
+    }
+}
