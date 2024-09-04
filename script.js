@@ -27,10 +27,17 @@ function atk(apc, dmg){
     if(apc > ap){
         apMeterElement.dataset.value = '0';
         apTextElement.innerText = '0';
+        ap = 0;
     } else {
         ap -= apc;
         apMeterElement.dataset.value = `${ap}`;
         apTextElement.innerText = `${ap}`;
+    }
+    if(ap == 0){
+        let fungus = document.getElementById('fungus');
+        fungus.classList.toggle('walk');
+        fungus.classList.toggle('jump');
+        return;
     }
 
     let hpTextElement = document.getElementById('hp-text');
