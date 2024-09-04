@@ -37,6 +37,10 @@ function atk(apc, dmg){
         let fungus = document.getElementById('fungus');
         fungus.classList.toggle('walk');
         fungus.classList.toggle('jump');
+        let buttons = document.getElementsByTagName('button');
+        for(let button of buttons){
+            button.disabled = true;
+        }
         return;
     }
 
