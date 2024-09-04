@@ -40,9 +40,15 @@ function atk(apc, dmg){
     if(dmg > hp){
         hpMeterElement.dataset.value = '0';
         hpTextElement.innerText = '0';
+        hp = 0;
     } else {
         hp -= dmg;
         hpMeterElement.dataset.value = `${hp}`;
         hpTextElement.innerText = `${hp}`;
+    }
+    if(hp == 0){
+        let fungus = document.getElementById('fungus');
+        fungus.classList.toggle('walk');
+        fungus.classList.toggle('dead');
     }
 }
